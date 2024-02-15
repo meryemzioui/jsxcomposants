@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Name from "./Name";
+import Price from "./Price";
+import Description from "./Description";
+import Image from "./Image";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Profil from "./Profil.js";
 
 function App() {
+  let myName = "Meryem";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* card bootstrap */}
+
+      <Card style={{ width: "18rem" }}>
+        {/* product image */}
+        <Image></Image>
+        <Card.Body>
+          {/* product name */}
+          <Name></Name>
+          <Card.Text>
+            {/* product description */}
+            <Description></Description>
+          </Card.Text>
+          <Button variant="danger">
+            {/* product price */}
+            <Price />
+          </Button>
+        </Card.Body>
+      </Card>
+      {/* conditional rendering */}
+      <div style={{ display: "flex" }}>
+        <p>Hello {myName === "Meryem" ? myName : "there"}</p>
+        <div>{myName === "Meryem" ? <Profil></Profil> : null}</div>
+      </div>
+    </>
   );
 }
 
